@@ -1,6 +1,6 @@
 import { Options } from "prettier";
 
-export function defineConfig(overrides: Options): Options {
+export function defineConfig(overrides: Options = {}): Options {
   return {
     printWidth: 120,
     tabWidth: 2,
