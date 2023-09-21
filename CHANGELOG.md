@@ -1,5 +1,11 @@
 # @synulux/prettier-config
 
+## 1.1.0
+
+### Minor Changes
+
+- [#3](https://github.com/synulux/prettier-config/pull/3) [`050858c`](https://github.com/synulux/prettier-config/commit/050858c322d02477e48319fe3d14453adfd8268f) Thanks [@synulux](https://github.com/synulux)! - Make the `overrides` parameter optional.
+
 ## 1.0.0
 
 ### Major Changes
