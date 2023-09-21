@@ -1,0 +1,51 @@
+name: Publish package
+
+on:
+  push:
+    branches: main
+
+concurrency: ${{ github.workflow }} (${{ github.ref }})
+
+jobs:
+  publish:
+    name: Publish package
+    runs-on: ubuntu-latest
+    steps:
+      - name: Wait for lint workflow
+        uses: johannesvedder/await-workflow@v1
+        with:
+          workflowId: lint.yaml
+          retryIntervalSeconds: 10
+          initialWaitSeconds: 10
+
+      - name: Check out repository
+        uses: actions/checkout@v3
+
+      - name: Setup pnpm (version 8)
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8
+
+      - name: Setup Node.js (version 20)
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Add authentication token
+        run: |
+          cat << EOF > $HOME/.npmrc
+            //npm.pkg.github.com/:_authToken=${{ github.token }}
+          EOF
+
+      - name: Create pull request (or publish)
+        uses: changesets/action@v1
+        with:
+          publish: pnpm run package:publish
+          commit: Package versioning
+          title: Package versioning
+        env:
+          GITHUB_TOKEN: ${{ github.token }}

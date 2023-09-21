@@ -1,0 +1,59 @@
+{
+  "name": "@synulux/prettier-config",
+  "version": "0.0.0",
+  "description": "Prettier shareable configuration with the default Synulux (Sandy Stone) conventions.",
+  "keywords": [
+    "prettier",
+    "config",
+    "synulux"
+  ],
+  "homepage": "https://github.com/synulux/prettier-config",
+  "bugs": "https://github.com/synulux/prettier-config/issues",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/synulux/prettier-config.git"
+  },
+  "license": "Apache-2.0",
+  "author": "Sandy Stone",
+  "type": "module",
+  "exports": {
+    ".": {
+      "import": "./out/index.js",
+      "require": "./out/index.cjs"
+    }
+  },
+  "main": "./out/index.js",
+  "types": "./out/index.d.ts",
+  "files": [
+    "./out/"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "build:watch": "tsup --watch",
+    "lint:check": "tsc",
+    "lint:staged": "lint-staged",
+    "package:publish": "pnpm run build && changeset publish",
+    "prepare": "husky install"
+  },
+  "devDependencies": {
+    "@changesets/changelog-github": "^0.4.8",
+    "@changesets/cli": "^2.26.2",
+    "@swc/core": "^1.3.86",
+    "@types/lint-staged": "^13.2.0",
+    "husky": "^8.0.3",
+    "lint-staged": "^14.0.1",
+    "lint-staged-tsc": "^0.2.1",
+    "pnpm": "^8.7.6",
+    "prettier": "^3.0.3",
+    "prettier-plugin-packagejson": "^2.4.5",
+    "tsup": "^7.2.0",
+    "typescript": "^5.2.2"
+  },
+  "peerDependencies": {
+    "prettier": ">=3",
+    "prettier-plugin-packagejson": ">=2"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  }
+}
