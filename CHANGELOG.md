@@ -1,5 +1,11 @@
 # @synulux/prettier-config
 
+## 1.3.0
+
+### Minor Changes
+
+- [#7](https://github.com/synulux/prettier-config/pull/7) [`adefef7`](https://github.com/synulux/prettier-config/commit/adefef7ad4b1a0c3441dc4516dd2fd8c61f7f661) Thanks [@synulux](https://github.com/synulux)! - Add `.prettierignore` to ignore files that don't need formatting; modify the `lint.yaml` workflow name; and fix `pnpm-lock.yaml` as it was affected by formatting.
+
 ## 1.2.0
 
 ### Minor Changes
