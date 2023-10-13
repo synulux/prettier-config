@@ -28,10 +28,9 @@
     "./out/"
   ],
   "scripts": {
-    "build": "tsup",
-    "build:watch": "tsup --watch",
-    "lint:check": "tsc",
-    "lint:staged": "lint-staged",
+    "build": "pnpm run lint:check && tsup",
+    "lint:check": "prettier --check . && tsc",
+    "lint:write": "prettier --write .",
     "package:publish": "pnpm run build && changeset publish",
     "prepare": "husky install"
   },
