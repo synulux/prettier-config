@@ -1,5 +1,13 @@
 # @synulux/prettier-config
 
+## 1.2.0
+
+### Minor Changes
+
+- [#5](https://github.com/synulux/prettier-config/pull/5) [`4360f73`](https://github.com/synulux/prettier-config/commit/4360f73b069eba6a07d362bd9eddd29df5b53d15) Thanks [@synulux](https://github.com/synulux)! - Add `prettier` to format the codebase with the same default configuration values of this package, and adapt the configurations for `lint-staged` and `husky` (including also scripts in the `package.json` file) for it to work correctly.
+
+- [#5](https://github.com/synulux/prettier-config/pull/5) [`3653c01`](https://github.com/synulux/prettier-config/commit/3653c011d23d5f1921b0e2d18f1b680dce6377ad) Thanks [@synulux](https://github.com/synulux)! - Add Visual Studio Code configurations for collaboration (settings and recommended extensions)
+
 ## 1.1.0
 
 ### Minor Changes
