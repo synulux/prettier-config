@@ -1,5 +1,15 @@
 # @synulux/prettier-config
 
+## 1.5.0
+
+### Minor Changes
+
+- [#11](https://github.com/synulux/prettier-config/pull/11) [`5637a48`](https://github.com/synulux/prettier-config/commit/5637a48e036dd0d8127bcc3a7fa0dfb41c273b3c) Thanks [@synulux](https://github.com/synulux)! - Format some website links in the `package.json` file to fit file paths style.
+
+- [#11](https://github.com/synulux/prettier-config/pull/11) [`e1950e2`](https://github.com/synulux/prettier-config/commit/e1950e25b6e0ce6018ded042d51cf29d2c12f469) Thanks [@synulux](https://github.com/synulux)! - To prevent authentication issues with GitHub Packages, all workflows that install dependencies should authenticate with GitHub Packages first (therefore, a composite action was created to reuse the authentication process); change the workflows file extension to be `.yml` and not `.yaml` for simplicity; and reduce the waiting time to five seconds for the `lint.yml` workflow to finish in the `publish.yml` workflow.
+
+- [#11](https://github.com/synulux/prettier-config/pull/11) [`345d063`](https://github.com/synulux/prettier-config/commit/345d06310b25bd68ef489607294f04d411b60081) Thanks [@synulux](https://github.com/synulux)! - Add default value for `token` input in the `auth-github-packages` action.
+
 ## 1.4.0
 
 ### Minor Changes
