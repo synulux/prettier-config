@@ -14,9 +14,9 @@ jobs:
       - name: Wait for lint workflow
         uses: johannesvedder/await-workflow@v1
         with:
-          workflowId: lint.yaml
-          retryIntervalSeconds: 10
-          initialWaitSeconds: 10
+          workflowId: lint.yml
+          retryIntervalSeconds: 5
+          initialWaitSeconds: 5
 
       - name: Check out repository
         uses: actions/checkout@v3
@@ -32,14 +32,13 @@ jobs:
           node-version: 20
           cache: pnpm
 
+      - name: Authenticate to GitHub Packages (npm)
+        uses: ./.github/actions/auth-github-packages/
+        with:
+          token: ${{ github.token }}
+
       - name: Install dependencies
         run: pnpm install
-
-      - name: Add authentication token
-        run: |
-          cat << EOF > $HOME/.npmrc
-            //npm.pkg.github.com/:_authToken=${{ github.token }}
-          EOF
 
       - name: Create pull request (or publish)
         uses: changesets/action@v1
