@@ -34,8 +34,6 @@ jobs:
 
       - name: Authenticate to GitHub Packages (npm)
         uses: ./.github/actions/auth-github-packages/
-        with:
-          token: ${{ github.token }}
 
       - name: Install dependencies
         run: pnpm install

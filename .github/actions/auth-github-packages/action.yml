@@ -4,6 +4,7 @@ inputs:
   token:
     description: The authentication token to be used.
     required: true
+    default: ${{ github.token }}
 
 runs:
   using: composite
