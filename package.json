@@ -14,7 +14,9 @@
     "url": "https://github.com/synulux/prettier-config.git"
   },
   "license": "Apache-2.0",
-  "author": "Sandy Stone",
+  "author": {
+    "name": "Sandy Stone"
+  },
   "type": "module",
   "exports": {
     ".": {
