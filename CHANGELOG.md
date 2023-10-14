@@ -1,5 +1,11 @@
 # @synulux/prettier-config
 
+## 1.4.0
+
+### Minor Changes
+
+- [#9](https://github.com/synulux/prettier-config/pull/9) [`9c04431`](https://github.com/synulux/prettier-config/commit/9c0443134e0b482441a5ea211bb08fcd6e92ec43) Thanks [@synulux](https://github.com/synulux)! - Modify `package.json` `author` field to be an object for simplicity.
+
 ## 1.3.0
 
 ### Minor Changes
