@@ -7,8 +7,8 @@
     "config",
     "synulux"
   ],
-  "homepage": "https://github.com/synulux/prettier-config",
-  "bugs": "https://github.com/synulux/prettier-config/issues",
+  "homepage": "https://github.com/synulux/prettier-config/",
+  "bugs": "https://github.com/synulux/prettier-config/issues/",
   "repository": {
     "type": "git",
     "url": "https://github.com/synulux/prettier-config.git"
@@ -55,6 +55,6 @@
     "prettier-plugin-packagejson": ">=2"
   },
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com"
+    "registry": "https://npm.pkg.github.com/"
   }
 }

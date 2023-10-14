@@ -1,0 +1,17 @@
+name: Authenticate to GitHub Packages (npm)
+
+inputs:
+  token:
+    description: The authentication token to be used.
+    required: true
+    default: ${{ github.token }}
+
+runs:
+  using: composite
+  steps:
+    - name: Add authentication token
+      shell: sh
+      run: |
+        cat << EOF > $HOME/.npmrc
+          //npm.pkg.github.com/:_authToken=${{ inputs.token }}
+        EOF
