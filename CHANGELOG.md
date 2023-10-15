@@ -1,5 +1,11 @@
 # @synulux/prettier-config
 
+## 1.6.0
+
+### Minor Changes
+
+- [#13](https://github.com/synulux/prettier-config/pull/13) [`dbc404f`](https://github.com/synulux/prettier-config/commit/dbc404fe2b996588053807f579e64702d5dc3898) Thanks [@synulux](https://github.com/synulux)! - Remove `access` field in `.changeset/config.json` because it's not needed.
+
 ## 1.5.0
 
 ### Minor Changes
