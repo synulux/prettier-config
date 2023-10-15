@@ -1,5 +1,11 @@
 # @synulux/prettier-config
 
+## 1.7.0
+
+### Minor Changes
+
+- [#15](https://github.com/synulux/prettier-config/pull/15) [`b1b6c86`](https://github.com/synulux/prettier-config/commit/b1b6c86f157ad3099f78906b4da3a6e3c294a9c4) Thanks [@synulux](https://github.com/synulux)! - Remove duplicate dependencies in `package.json` that get installed automatically.
+
 ## 1.6.0
 
 ### Minor Changes
