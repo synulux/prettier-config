@@ -1,5 +1,11 @@
 # @synulux/prettier-config
 
+## 1.8.0
+
+### Minor Changes
+
+- [#17](https://github.com/synulux/prettier-config/pull/17) [`1a41ea2`](https://github.com/synulux/prettier-config/commit/1a41ea2bb2e5a8728c3b111c8a866b913e7015b4) Thanks [@synulux](https://github.com/synulux)! - Add back duplicate dependencies (related to peer dependencies) in `package.json` to avoid confusion (this will not affect how these duplicated dependencies were installed); and change the peer dependencies version to be exactly as their equivalent dependency (development or production) to avoid issues that may arise in the future.
+
 ## 1.7.0
 
 ### Minor Changes
