@@ -27,8 +27,8 @@ devDependencies:
     specifier: ^0.2.1
     version: 0.2.1
   pnpm:
-    specifier: ^8.7.6
-    version: 8.7.6
+    specifier: ^8.9.2
+    version: 8.9.2
   prettier:
     specifier: ^3.0.3
     version: 3.0.3
@@ -2314,9 +2314,10 @@ packages:
       find-up: 4.1.0
     dev: true
 
-  /pnpm@8.7.6:
-    resolution: {integrity: sha512-ZJ/LpDy+IGYpCPYo2INfnw2MopUOTHQ3HcnhbiSqVLtV5rTmsrbFHe4i35ITLpcgvIWptWbzUTZ8efDYXWpFew==}
+  /pnpm@8.9.2:
+    resolution: {integrity: sha512-udNf6RsqWFTa3EMDSj57LmdfpLVuIOjgnvB4+lU8GPiu1EBR57Nui43UNfl+sMRMT/O0T8fG+n0h4frBe75mHg==}
     engines: {node: '>=16.14'}
+    hasBin: true
     dev: true
 
   /postcss-load-config@4.0.1:
