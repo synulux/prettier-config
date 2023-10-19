@@ -38,6 +38,9 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
+      - name: Check for changesets
+        run: pnpm exec changeset status
+
       - name: Create pull request (or publish)
         uses: changesets/action@v1
         with:
