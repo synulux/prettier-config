@@ -39,7 +39,7 @@ jobs:
         run: pnpm install
 
       - name: Check for changesets
-        run: pnpm exec changeset status
+        run: pnpm exec changeset status --since main
 
       - name: Create pull request (or publish)
         uses: changesets/action@v1
