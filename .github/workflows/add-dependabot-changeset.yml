@@ -18,5 +18,5 @@ jobs:
       - name: Print metadata
         run: |
           echo "Dependency names: ${{ steps.metadata.outputs.dependency-names }}"
-          echo "New version: ${{ steps.metadata.outputs.previous-version }}"
-          echo "Previous version: ${{ steps.metadata.outputs.new-version }}"
+          echo "New version: ${{ steps.metadata.outputs.new-version }}"
+          echo "Previous version: ${{ steps.metadata.outputs.previous-version }}"
