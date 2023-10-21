@@ -25,5 +25,10 @@ jobs:
 
           Update dependency \`${{ steps.metadata.outputs.dependency-names }}\` from version \`${{ steps.metadata.outputs.previous-version }}\` to version \`${{ steps.metadata.outputs.new-version }}\`" > ${{ env.CHANGESET_FILE }}
 
-      - name: Show changeset
-        run: cat ${{ env.CHANGESET_FILE }}
+      - name: Commit and push changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          git add .
+          (git commit -m "Update pnpm version" && git push) || echo "No changes made"
