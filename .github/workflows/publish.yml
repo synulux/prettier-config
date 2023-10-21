@@ -7,6 +7,7 @@ concurrency: ${{ github.workflow }} (${{ github.ref }})
 jobs:
   publish:
     name: Publish package
+    environment: production
     runs-on: ubuntu-latest
     steps:
       - name: Wait for lint workflow
