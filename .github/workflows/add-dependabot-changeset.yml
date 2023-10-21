@@ -14,8 +14,8 @@ jobs:
     env:
       CHANGESET_FILE: ./.changeset/${{ github.run_id }}-${{github.run_attempt}}.md
     steps:
-      - name: Check out repository
-        uses: actions/checkout@v3
+      - name: Check out pull request
+        run: gh pr checkout ${{ github.event.pull_request.number }}
 
       - name: Fetch Dependabot metadata
         id: metadata
@@ -29,10 +29,10 @@ jobs:
 
           Update dependency \`${{ steps.metadata.outputs.dependency-names }}\` from version \`${{ steps.metadata.outputs.previous-version }}\` to version \`${{ steps.metadata.outputs.new-version }}\`" > ${{ env.CHANGESET_FILE }}
 
-      - name: Update pull request
-        uses: gr2m/create-or-update-pull-request-action@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          commit-message: Add changeset
-          author: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
+      - name: Commit and push changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          git add .
+          (git commit -m "Add changeset" && git push) || echo "No changes made"
