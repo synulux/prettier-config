@@ -10,21 +10,17 @@ jobs:
     env:
       CHANGESET_FILE: ./.changeset/${{ github.run_id }}-${{github.run_attempt}}.md
     steps:
+      - name: Check out repository
+        uses: actions/checkout@v3
+
       - name: Fetch Dependabot metadata
         id: metadata
         uses: dependabot/fetch-metadata@v1
 
-      - name: Check out repository
-        uses: actions/checkout@v3
-
-      - name: Generate UUID for changeset
-        id: uuid
-        uses: filipstefansson/uuid-action@v1
-
       - name: Create changeset
         run: |
           echo "---
-          '@synulux/prettier-config': patch
+          '@${{ github.repository }}': patch
           ---
 
           Update dependency `${{ steps.metadata.outputs.dependency-names }}` from version `${{ steps.metadata.outputs.previous-version }}` to version `${{ steps.metadata.outputs.new-version }}`" > ${{ env.CHANGESET_FILE }}
