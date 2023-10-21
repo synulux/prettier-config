@@ -1,0 +1,22 @@
+name: Add Dependabot changeset
+
+on: pull_request
+
+jobs:
+  add-changeset:
+    name: Add changeset
+    runs-on: ubuntu-latest
+    if: ${{ github.actor == 'dependabot[bot]' }}
+    steps:
+      - name: Fetch Dependabot metadata
+        id: metadata
+        uses: dependabot/fetch-metadata@v1
+
+      - name: Check out repository
+        uses: actions/checkout@v3
+
+      - name: Print metadata
+        run: |
+          echo "Dependency names: ${{ steps.metadata.outputs.dependency-names }}"
+          echo "New version: ${{ steps.metadata.outputs.previous-version }}"
+          echo "Previous version: ${{ steps.metadata.outputs.new-version }}"
