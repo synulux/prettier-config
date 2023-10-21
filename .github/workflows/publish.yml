@@ -1,8 +1,6 @@
 name: Publish package
 
-on:
-  push:
-    branches: main
+on: workflow_dispatch
 
 concurrency: ${{ github.workflow }} (${{ github.ref }})
 
