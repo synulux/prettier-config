@@ -14,6 +14,9 @@ jobs:
     env:
       CHANGESET_FILE: ./.changeset/${{ github.run_id }}-${{github.run_attempt}}.md
     steps:
+      - name: Check out repository
+        uses: actions/checkout@v3
+
       - name: Check out pull request
         env:
           GH_TOKEN: ${{ github.token }}
