@@ -23,7 +23,7 @@ jobs:
           '@%s': patch
           ---
 
-          Update dependency \`%s\` from version \`%s\` to version \`%s\`" "${{ github.repository }}" "${{ steps.metadata.outputs['dependency-names'] }}" "${{ steps.metadata.outputs['previous-version'] }}" "${{ steps.metadata.outputs['new-version'] }}" > ${{ env.CHANGESET_FILE }}
+          Update dependency \`%s\` from version \`%s\` to version \`%s\`" "${{ github.repository }}" "${{ steps.metadata.outputs.dependency-names }}" "${{ steps.metadata.outputs.previous-version }}" "${{ steps.metadata.outputs.new-version }}" > ${{ env.CHANGESET_FILE }}
 
       - name: Show changeset
         run: cat ${{ env.CHANGESET_FILE }}
