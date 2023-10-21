@@ -7,6 +7,8 @@ jobs:
     name: Add changeset
     runs-on: ubuntu-latest
     if: ${{ github.actor == 'dependabot[bot]' }}
+    env:
+      CHANGESET_FILE: ./.changeset/${{ github.run_id }}-${{github.run_attempt}}.md
     steps:
       - name: Fetch Dependabot metadata
         id: metadata
@@ -25,7 +27,7 @@ jobs:
           '@synulux/prettier-config': patch
           ---
 
-          Update dependency `${{ steps.metadata.outputs.dependency-names }}` from version `${{ steps.metadata.outputs.previous-version }}` to version `${{ steps.metadata.outputs.new-version }}`" > ./.changeset/${{ steps.uuid.outputs.uuid }}.md
+          Update dependency `${{ steps.metadata.outputs.dependency-names }}` from version `${{ steps.metadata.outputs.previous-version }}` to version `${{ steps.metadata.outputs.new-version }}`" > ${{ env.CHANGESET_FILE }}
 
       - name: Show changeset
-        run: cat ./.changeset/${{ steps.uuid.outputs.uuid }}.md
+        run: cat ${{ env.CHANGESET_FILE }}
