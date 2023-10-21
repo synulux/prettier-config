@@ -15,8 +15,17 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v3
 
-      - name: Print metadata
+      - name: Generate UUID for changeset
+        id: uuid
+        uses: filipstefansson/uuid-action@v1
+
+      - name: Create changeset
         run: |
-          echo "Dependency names: ${{ steps.metadata.outputs.dependency-names }}"
-          echo "New version: ${{ steps.metadata.outputs.new-version }}"
-          echo "Previous version: ${{ steps.metadata.outputs.previous-version }}"
+          echo "---
+          '@synulux/prettier-config': patch
+          ---
+
+          Update dependency `${{ steps.metadata.outputs.dependency-names }}` from version `${{ steps.metadata.outputs.previous-version }}` to version `${{ steps.metadata.outputs.new-version }}`" > ./.changeset/${{ steps.uuid.outputs.uuid }}.md
+
+      - name: Show changeset
+        run: cat ./.changeset/${{ steps.uuid.outputs.uuid }}.md
