@@ -22,6 +22,20 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: gh pr checkout ${{ github.event.pull_request.number }}
 
+      - name: Setup pnpm (version 8)
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8
+
+      - name: Setup Node.js (version 20)
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20
+          cache: pnpm
+
+      - name: Authenticate to GitHub Packages (npm)
+        uses: ./.github/actions/auth-github-packages/
+
       - name: Fetch Dependabot metadata
         id: metadata
         uses: dependabot/fetch-metadata@v1
@@ -33,6 +47,9 @@ jobs:
           ---
 
           Update dependency \`${{ steps.metadata.outputs.dependency-names }}\` from version \`${{ steps.metadata.outputs.previous-version }}\` to version \`${{ steps.metadata.outputs.new-version }}\`" > ${{ env.CHANGESET_FILE }}
+
+      - name: Format files
+        run: pnpm run lint:write
 
       - name: Commit and push changes
         run: |
