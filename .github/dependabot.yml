@@ -11,3 +11,6 @@ updates:
     schedule:
       interval: daily
       time: "22:06"
+    ignore:
+      - dependency-name: "*"
+        update-types: ["version-update:semver-major"]
