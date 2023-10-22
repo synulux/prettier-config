@@ -46,7 +46,7 @@ jobs:
       - name: Create changeset
         run: |
           echo "---
-          '@${{ github.repository }}': patch
+          \"@${{ github.repository }}\": patch
           ---
 
           Update dependency \`${{ steps.metadata.outputs.dependency-names }}\` from version \`${{ steps.metadata.outputs.previous-version }}\` to version \`${{ steps.metadata.outputs.new-version }}\`" > ${{ env.CHANGESET_FILE }}
