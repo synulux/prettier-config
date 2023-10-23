@@ -1,5 +1,13 @@
 # @synulux/prettier-config
 
+## 1.11.3
+
+### Patch Changes
+
+- [#32](https://github.com/synulux/prettier-config/pull/32) [`eaec2ff`](https://github.com/synulux/prettier-config/commit/eaec2ff3829513190aa9882b51709f768491f59a) Thanks [@dependabot](https://github.com/apps/dependabot)! - Update dependency `lint-staged` from version `14.0.0` to version `14.0.1`
+
+- [#35](https://github.com/synulux/prettier-config/pull/35) [`9643341`](https://github.com/synulux/prettier-config/commit/964334154c3223b7a9664c3da366287350b29799) Thanks [@dependabot](https://github.com/apps/dependabot)! - Update dependency `actions/checkout` from version `3` to version `4`
+
 ## 1.11.2
 
 ### Patch Changes
