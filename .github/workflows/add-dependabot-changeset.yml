@@ -24,7 +24,7 @@ jobs:
       - name: Create changeset
         uses: generates/changeset-action@v3.0.0
         with:
-          summary: Update dependency (or dependencies) `${{ steps.metadata.outputs.dependency-names }}` from version `${{ steps.metadata.outputs.previous-version }}` to `${{ steps.metadata.outputs.new-version }}`.
+          summary: Update dependency (or dependencies) \`${{ steps.metadata.outputs.dependency-names }}\` from version \`${{ steps.metadata.outputs.previous-version }}\` to \`${{ steps.metadata.outputs.new-version }}\`.
 
       - name: Commit and push changes
         run: |
