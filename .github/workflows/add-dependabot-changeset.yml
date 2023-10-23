@@ -21,18 +21,18 @@ jobs:
         id: metadata
         uses: dependabot/fetch-metadata@v1
 
+      - name: Create changeset
+        uses: generates/changeset-action@v3.0.0
+        with:
+          type: ${{ steps.metadata.outputs.update-type == 'version-update:semver-major' && 'major' || (steps.metadata.outputs.update-type == 'version-update:semver-minor' && 'minor' || (steps.metadata.outputs.update-type == 'version-update:semver-patch' && 'patch' || '')) }}
+          summary: Update dependency (or dependencies) \`${{ steps.metadata.outputs.dependency-names }}\` from version \`${{ steps.metadata.outputs.previous-version }}\` to \`${{ steps.metadata.outputs.new-version }}\`.
+
       - name: Get changed packages
         id: changes
         uses: caffco/changed-packages-github-action@v0.0.8
 
       - name: Show changed packages
         run: echo ${{ steps.changes.outputs.changed_packages }}
-
-      - name: Create changeset
-        uses: generates/changeset-action@v3.0.0
-        with:
-          type: ${{ steps.metadata.outputs.update-type == 'version-update:semver-major' && 'major' || (steps.metadata.outputs.update-type == 'version-update:semver-minor' && 'minor' || (steps.metadata.outputs.update-type == 'version-update:semver-patch' && 'patch' || '')) }}
-          summary: Update dependency (or dependencies) \`${{ steps.metadata.outputs.dependency-names }}\` from version \`${{ steps.metadata.outputs.previous-version }}\` to \`${{ steps.metadata.outputs.new-version }}\`.
 
       - name: Commit and push changes
         run: |
