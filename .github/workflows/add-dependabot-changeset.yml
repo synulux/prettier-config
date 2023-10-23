@@ -7,6 +7,20 @@ permissions:
   contents: write
 
 jobs:
+  get-changed-packages:
+    name: Get changed packages
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Get changed packages
+        uses: caffco/changed-packages-github-action@v0.0.7
+        with:
+          base_branch: main
+          repository_path: .
+
   add-changeset:
     name: Add changeset
     runs-on: ubuntu-latest
@@ -16,6 +30,9 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
+
+      - name: Check out pull request
+        run: gh pr checkout ${{ github.event.pull_request.number }}
 
       - name: Fetch Dependabot metadata
         id: metadata
