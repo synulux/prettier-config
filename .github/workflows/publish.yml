@@ -19,7 +19,7 @@ jobs:
           initialWaitSeconds: 5
 
       - name: Check out repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Setup pnpm (version 8)
         uses: pnpm/action-setup@v2
