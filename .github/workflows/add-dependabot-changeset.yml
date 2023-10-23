@@ -18,6 +18,7 @@ jobs:
       - name: Create changeset
         uses: mscharley/dependency-changesets-action@v1.0.3
         with:
+          token: ${{ github.token }}
           use-semantic-commits: false
           commit-message: Add changeset for dependency updates
           author-name: github-actions[bot]
