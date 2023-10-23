@@ -25,6 +25,9 @@ jobs:
       #    type: ${{ steps.metadata.outputs.update-type == 'version-update:semver-major' && 'major' || (steps.metadata.outputs.update-type == 'version-update:semver-minor' && 'minor' || (steps.metadata.outputs.update-type == 'version-update:semver-patch' && 'patch' || '')) }}
       #    summary: Update dependency (or dependencies) \`${{ steps.metadata.outputs.dependency-names }}\` from version \`${{ steps.metadata.outputs.previous-version }}\` to \`${{ steps.metadata.outputs.new-version }}\`.
 
+      - name: Show current branch
+        run: git branch --show-current
+
       - name: Create file
         run: |
           echo "---
