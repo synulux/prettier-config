@@ -12,15 +12,14 @@ jobs:
     runs-on: ubuntu-latest
     if: ${{ github.actor == 'dependabot[bot]' }}
     steps:
-      - name: Fetch Dependabot metadata
-        id: metadata
-        uses: dependabot/fetch-metadata@v1
-
       - name: Check out repository
         uses: actions/checkout@v4
         with:
-          ref: ${{github.event.pull_request.head.sha}}
           fetch-depth: 0
+
+      - name: Fetch Dependabot metadata
+        id: metadata
+        uses: dependabot/fetch-metadata@v1
 
       - name: Get changed packages
         id: changes
