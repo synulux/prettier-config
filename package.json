@@ -46,13 +46,13 @@
     "lint-staged-tsc": "^0.2.1",
     "pnpm": "^8.9.2",
     "prettier": "^3.0.3",
-    "prettier-plugin-packagejson": "^2.4.6",
+    "prettier-plugin-packagejson": "^2.0.0",
     "tsup": "^7.2.0",
     "typescript": "^5.2.2"
   },
   "peerDependencies": {
     "prettier": "^3.0.3",
-    "prettier-plugin-packagejson": "^2.4.6"
+    "prettier-plugin-packagejson": "^2.0.0"
   },
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/"
