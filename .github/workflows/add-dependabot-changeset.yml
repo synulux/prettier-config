@@ -1,6 +1,8 @@
 name: Add Dependabot changeset
 
-on: pull_request
+on:
+  pull_request:
+    types: [labeled]
 
 permissions:
   pull-requests: write
@@ -11,8 +13,6 @@ jobs:
     name: Add changeset
     runs-on: ubuntu-latest
     if: ${{ github.actor == 'dependabot[bot]' }}
-    env:
-      CHANGESET_FILE: ./.changeset/${{ github.run_id }}-${{github.run_attempt}}.md
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
@@ -24,7 +24,6 @@ jobs:
       - name: Create changeset
         uses: generates/changeset-action@v3.0.0
         with:
-          type: ${{ steps.metadata.outputs.update-type == 'version-update:semver-major' && 'major' || (steps.metadata.outputs.update-type == 'version-update:semver-minor' && 'minor' || (steps.metadata.outputs.update-type == 'version-update:semver-patch' && 'patch' || '')) }}
           summary: Update dependency (or dependencies) \`${{ steps.metadata.outputs.dependency-names }}\` from version \`${{ steps.metadata.outputs.previous-version }}\` to \`${{ steps.metadata.outputs.new-version }}\`.
 
       - name: Commit and push changes
