@@ -5,7 +5,7 @@
   "changelog": [
     "@changesets/changelog-github",
     {
-      "repo": "synulux/prettier-config"
+      "repo": "synulux/old-prettier-config"
     }
   ]
 }

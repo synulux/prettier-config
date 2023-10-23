@@ -1,5 +1,5 @@
 {
-  "name": "@synulux/prettier-config",
+  "name": "@synulux/old-prettier-config",
   "version": "1.11.2",
   "description": "Prettier shareable configuration with the default Synulux (Sandy Stone) conventions.",
   "keywords": [
@@ -7,11 +7,11 @@
     "config",
     "synulux"
   ],
-  "homepage": "https://github.com/synulux/prettier-config/",
-  "bugs": "https://github.com/synulux/prettier-config/issues/",
+  "homepage": "https://github.com/synulux/old-prettier-config/",
+  "bugs": "https://github.com/synulux/old-prettier-config/issues/",
   "repository": {
     "type": "git",
-    "url": "https://github.com/synulux/prettier-config.git"
+    "url": "https://github.com/synulux/old-prettier-config.git"
   },
   "license": "Apache-2.0",
   "author": {
