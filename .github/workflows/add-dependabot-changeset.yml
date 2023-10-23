@@ -14,23 +14,21 @@ jobs:
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
 
-      - name: Check out pull request
-        run: gh pr checkout ${{ github.event.pull_request.number }}
-        env:
-          GH_TOKEN: ${{ github.token }}
+      # - name: Fetch Dependabot metadata
+      #   id: metadata
+      #   uses: dependabot/fetch-metadata@v1
 
-      - name: Fetch Dependabot metadata
-        id: metadata
-        uses: dependabot/fetch-metadata@v1
+      # - name: Create changeset
+      #  uses: generates/changeset-action@v3.0.0
+      #  with:
+      #    type: ${{ steps.metadata.outputs.update-type == 'version-update:semver-major' && 'major' || (steps.metadata.outputs.update-type == 'version-update:semver-minor' && 'minor' || (steps.metadata.outputs.update-type == 'version-update:semver-patch' && 'patch' || '')) }}
+      #    summary: Update dependency (or dependencies) \`${{ steps.metadata.outputs.dependency-names }}\` from version \`${{ steps.metadata.outputs.previous-version }}\` to \`${{ steps.metadata.outputs.new-version }}\`.
 
-      - name: Create changeset
-        uses: generates/changeset-action@v3.0.0
-        with:
-          type: ${{ steps.metadata.outputs.update-type == 'version-update:semver-major' && 'major' || (steps.metadata.outputs.update-type == 'version-update:semver-minor' && 'minor' || (steps.metadata.outputs.update-type == 'version-update:semver-patch' && 'patch' || '')) }}
-          summary: Update dependency (or dependencies) \`${{ steps.metadata.outputs.dependency-names }}\` from version \`${{ steps.metadata.outputs.previous-version }}\` to \`${{ steps.metadata.outputs.new-version }}\`.
+      - name: Create file
+        run: |
+          echo "---
+          ---" > ./.changeset/${{ github.run_id }}${{ github.run_attempt }}.md
 
       - name: Get changed packages
         id: changes
@@ -39,10 +37,10 @@ jobs:
       - name: Show changed packages
         run: echo ${{ steps.changes.outputs.changed_packages }}
 
-      - name: Commit and push changes
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
+      #- name: Commit and push changes
+      #  run: |
+      #    git config user.name "github-actions[bot]"
+      #    git config user.email "github-actions[bot]@users.noreply.github.com"
 
-          git add .
-          (git commit -m "Add changeset for dependency updates" && git push) || echo "No changes found, not pushing"
+      #    git add .
+      #    (git commit -m "Add changeset for dependency updates" && git push) || echo "No changes found, not pushing"
