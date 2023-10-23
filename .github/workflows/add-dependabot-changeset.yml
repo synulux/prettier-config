@@ -18,9 +18,7 @@ jobs:
           fetch-depth: 0
 
       - name: Check out pull request
-        run: gh pr checkout ${{ github.event.pull_request.number }}
-        env:
-          GH_TOKEN: ${{ github.token }}
+        run: git checkout ${{ github.event.pull_request.head.sha }}
 
       - name: Fetch Dependabot metadata
         id: metadata
