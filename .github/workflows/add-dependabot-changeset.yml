@@ -15,6 +15,14 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v4
 
+      - name: Create changeset
+        uses: mscharley/dependency-changesets-action@v1.0.3
+        with:
+          use-semantic-commits: false
+          commit-message: Add changeset for dependency updates
+          author-name: github-actions[bot]
+          author-email: github-actions[bot]@users.noreply.github.com
+
       # - name: Fetch Dependabot metadata
       #   id: metadata
       #   uses: dependabot/fetch-metadata@v1
@@ -25,25 +33,25 @@ jobs:
       #    type: ${{ steps.metadata.outputs.update-type == 'version-update:semver-major' && 'major' || (steps.metadata.outputs.update-type == 'version-update:semver-minor' && 'minor' || (steps.metadata.outputs.update-type == 'version-update:semver-patch' && 'patch' || '')) }}
       #    summary: Update dependency (or dependencies) \`${{ steps.metadata.outputs.dependency-names }}\` from version \`${{ steps.metadata.outputs.previous-version }}\` to \`${{ steps.metadata.outputs.new-version }}\`.
 
-      - name: Show current branch
-        run: git branch --show-current
+      # - name: Show current branch
+      #   run: git branch --show-current
 
-      - name: Create file
+      # - name: Create file
+      #   run: |
+      #     echo "---
+      #     ---" > ./.changeset/${{ github.run_id }}${{ github.run_attempt }}.md
+
+      # - name: Get changed packages
+      #   id: changes
+      #   uses: caffco/changed-packages-github-action@v0.0.8
+
+      # - name: Show changed packages
+      #   run: echo ${{ steps.changes.outputs.changed_packages }}
+
+      - name: Commit and push changes
         run: |
-          echo "---
-          ---" > ./.changeset/${{ github.run_id }}${{ github.run_attempt }}.md
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
 
-      - name: Get changed packages
-        id: changes
-        uses: caffco/changed-packages-github-action@v0.0.8
-
-      - name: Show changed packages
-        run: echo ${{ steps.changes.outputs.changed_packages }}
-
-      #- name: Commit and push changes
-      #  run: |
-      #    git config user.name "github-actions[bot]"
-      #    git config user.email "github-actions[bot]@users.noreply.github.com"
-
-      #    git add .
-      #    (git commit -m "Add changeset for dependency updates" && git push) || echo "No changes found, not pushing"
+          git add .
+          (git commit -m "Add changeset for dependency updates" && git push) || echo "No changes found, not pushing"
