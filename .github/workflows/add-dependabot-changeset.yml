@@ -19,6 +19,13 @@ jobs:
         id: metadata
         uses: dependabot/fetch-metadata@v1
 
+      - name: Get changed packages
+        id: changes
+        uses: caffco/changed-packages-github-action@v0.0.8
+
+      - name: Show changed packages
+        run: echo ${{ steps.changes.outputs.changed_packages }}
+
       - name: Create changeset
         uses: generates/changeset-action@v3.0.0
         with:
