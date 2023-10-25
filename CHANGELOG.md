@@ -1,5 +1,11 @@
 # @synulux/prettier-config
 
+## 1.11.4
+
+### Patch Changes
+
+- [#37](https://github.com/synulux/old-prettier-config/pull/37) [`27e8274`](https://github.com/synulux/old-prettier-config/commit/27e8274a720265bbc53e005528045b594ab24fa3) Thanks [@dependabot](https://github.com/apps/dependabot)! - Bump prettier-plugin-packagejson from 2.0.0 to 2.4.6
+
 ## 1.11.3
 
 ### Patch Changes
