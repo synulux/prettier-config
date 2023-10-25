@@ -15,18 +15,27 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v4
 
-      - name: Create changeset
-        uses: mscharley/dependency-changesets-action@v1.0.3
-        with:
-          token: ${{ github.token }}
-          use-semantic-commits: false
-          commit-message: Add changeset for dependency updates
-          author-name: github-actions[bot]
-          author-email: github-actions[bot]@users.noreply.github.com
+      # - name: Create changeset
+      #   uses: mscharley/dependency-changesets-action@v1.0.3
+      #   with:
+      #     token: ${{ github.token }}
+      #     use-semantic-commits: false
+      #     commit-message: Add changeset for dependency updates
+      #     author-name: github-actions[bot]
+      #     author-email: github-actions[bot]@users.noreply.github.com
 
-      # - name: Fetch Dependabot metadata
-      #   id: metadata
-      #   uses: dependabot/fetch-metadata@v1
+      - name: Fetch Dependabot metadata
+        id: metadata
+        uses: dependabot/fetch-metadata@v1
+
+      - name: Show Dependabot metadata output (1)
+        run: ${{ steps.metadata.outputs }}
+
+      - name: Show Dependabot metadata output (2)
+        run: echo ${{ steps.metadata.outputs }}
+
+      - name: Show Dependabot metadata output (3)
+        run: echo "${{ steps.metadata.outputs }}"
 
       # - name: Create changeset
       #  uses: generates/changeset-action@v3.0.0
@@ -49,10 +58,10 @@ jobs:
       # - name: Show changed packages
       #   run: echo ${{ steps.changes.outputs.changed_packages }}
 
-      - name: Commit and push changes
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
+      # - name: Commit and push changes
+      #   run: |
+      #     git config user.name "github-actions[bot]"
+      #     git config user.email "github-actions[bot]@users.noreply.github.com"
 
-          git add .
-          (git commit -m "Add changeset for dependency updates" && git push) || echo "No changes found, not pushing"
+      #     git add .
+      #     (git commit -m "Add changeset for dependency updates" && git push) || echo "No changes found, not pushing"
