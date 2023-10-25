@@ -29,7 +29,7 @@ jobs:
         uses: dependabot/fetch-metadata@v1
 
       - name: Show Dependabot metadata output
-        run: echo "${{ toJson(steps.metadata.outputs) }}"
+        run: echo "${{ fromJson(toJson(steps.metadata.outputs))['dependency-names'] }}"
 
       # - name: Create changeset
       #  uses: generates/changeset-action@v3.0.0
