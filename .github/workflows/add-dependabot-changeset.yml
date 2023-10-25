@@ -28,10 +28,7 @@ jobs:
         id: metadata
         uses: dependabot/fetch-metadata@v1
 
-      - name: Show Dependabot metadata output (1)
-        run: echo ${{ toJson(steps.metadata.outputs) }}
-
-      - name: Show Dependabot metadata output (2)
+      - name: Show Dependabot metadata output
         run: echo "${{ toJson(steps.metadata.outputs) }}"
 
       # - name: Create changeset
