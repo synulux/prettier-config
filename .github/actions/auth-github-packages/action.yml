@@ -1,4 +1,5 @@
 name: Authenticate to GitHub Packages (npm)
+description: Adds the provided authentication token to the npm global configuration file.
 
 inputs:
   token:
@@ -13,5 +14,5 @@ runs:
       shell: sh
       run: |
         cat << EOF > $HOME/.npmrc
-          //npm.pkg.github.com/:_authToken=${{ inputs.token }}
+          //npm.pkg.github.com/:_authToken=${{ github.token }}
         EOF

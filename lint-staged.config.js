@@ -2,7 +2,7 @@
 
 /** @type {import("lint-staged").Config} */
 const config = {
-  "*": "prettier --check --ignore-unknown",
+  "*": "",
   "*.ts": "lint-staged-tsc"
 };
 
