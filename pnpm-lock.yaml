@@ -15,8 +15,8 @@ devDependencies:
     specifier: ^1.3.94
     version: 1.3.94
   '@types/lint-staged':
-    specifier: ^13.2.1
-    version: 13.2.1
+    specifier: ^13.2.2
+    version: 13.2.2
   husky:
     specifier: ^8.0.3
     version: 8.0.3
@@ -685,8 +685,8 @@ packages:
       ci-info: 3.8.0
     dev: true
 
-  /@types/lint-staged@13.2.1:
-    resolution: {integrity: sha512-/pIzducFqyJAdXJb2pkQJNTIYBBph/XQdsBgn9oTuNjL1fMRw7AbutYzB0ODTxi8NYqJ9KUk9WyabZvpdNT/kQ==}
+  /@types/lint-staged@13.2.2:
+    resolution: {integrity: sha512-9c2ffPMJ1geob6yBmLuxzYye11HzKyA/I4dRZ8NfrPgY6SyzXt2SROD8vB3YjdPZJqqcu3WXsRvrY3PZbb720A==}
     dev: true
 
   /@types/minimist@1.2.2:
