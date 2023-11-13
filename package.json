@@ -44,7 +44,7 @@
     "husky": "^8.0.3",
     "lint-staged": "^15.0.2",
     "lint-staged-tsc": "^0.2.1",
-    "pnpm": "^8.9.2",
+    "pnpm": "^8.10.3",
     "prettier": "^3.0.3",
     "prettier-plugin-packagejson": "^2.4.6",
     "tsup": "^7.2.0",
