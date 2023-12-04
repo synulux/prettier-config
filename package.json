@@ -42,7 +42,7 @@
     "@swc/core": "^1.3.94",
     "@types/lint-staged": "^13.2.1",
     "husky": "^8.0.3",
-    "lint-staged": "^15.0.2",
+    "lint-staged": "^15.2.0",
     "lint-staged-tsc": "^0.2.1",
     "pnpm": "^8.9.2",
     "prettier": "^3.0.3",
