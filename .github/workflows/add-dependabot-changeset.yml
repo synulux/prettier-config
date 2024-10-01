@@ -26,7 +26,7 @@ jobs:
 
       - name: Fetch Dependabot metadata
         id: metadata
-        uses: dependabot/fetch-metadata@v1
+        uses: dependabot/fetch-metadata@v2
 
       - name: Show Dependabot metadata output
         run: echo "${{ fromJson(toJson(steps.metadata.outputs))['dependency-names'] }}"
