@@ -45,13 +45,13 @@
     "lint-staged": "^15.0.2",
     "lint-staged-tsc": "^0.2.1",
     "pnpm": "^8.9.2",
-    "prettier": "^3.0.3",
+    "prettier": "^3.4.2",
     "prettier-plugin-packagejson": "^2.4.6",
     "tsup": "^7.2.0",
     "typescript": "^5.2.2"
   },
   "peerDependencies": {
-    "prettier": "^3.0.3",
+    "prettier": "^3.4.2",
     "prettier-plugin-packagejson": "^2.4.6"
   },
   "publishConfig": {
